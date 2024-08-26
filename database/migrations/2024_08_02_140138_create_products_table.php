@@ -20,10 +20,11 @@ return new class extends Migration
             $table->decimal('regular_price');
             $table->decimal('sale_price')->nullable();
             $table->string('SKU');
-            $table->enum('stock_status',['instok','outsoftock']);
+            $table->enum('stock_status',['instock','outsoftock']);
             $table->boolean('featured')->default(false);
             $table->unsignedBigInteger('quantity')->default(10);
             $table->string('image')->nullable();
+            $table->string('images')->nullable();
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->bigInteger('brand_id')->unsigned()->nullable();
             $table->timestamps();
