@@ -255,7 +255,7 @@
     }
 
     .logo__image {
-        max-width: 220px;
+        max-width: 100px;
     }
 </style>
 <div class="header-mobile header_sticky">
@@ -283,7 +283,7 @@
 
     <nav
         class="header-mobile__navigation navigation d-flex flex-column w-100 position-absolute top-100 bg-body overflow-auto">
-        <div class="container">
+        {{-- <div class="container">
             <form action="#" method="GET" class="search-field position-relative mt-4 mb-3">
                 <div class="position-relative">
                     <input class="search-field__input w-100 border rounded-1" type="text" name="search-keyword"
@@ -301,7 +301,7 @@
                     <div class="search-result"></div>
                 </div>
             </form>
-        </div>
+        </div> --}}
 
         <div class="container">
             <div class="overflow-hidden">
@@ -310,17 +310,17 @@
                         <a href="{{ route('home.index') }}" class="navigation__link">Home</a>
                     </li>
                     <div class="divider"></div>
-                    <li class="navigation__item">
+                    {{-- <li class="navigation__item">
                         <a href="{{route('shop.index')}}" class="navigation__link">Shop</a>
+                    </li> --}}
+                    <li class="navigation__item">
+                        <a href="{{route('cart.index')}}" class="navigation__link">Cart</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="cart.html" class="navigation__link">Cart</a>
+                        <a href="{{ route('home.about') }}" class="navigation__link">About</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="about.html" class="navigation__link">About</a>
-                    </li>
-                    <li class="navigation__item">
-                        <a href="contact.html" class="navigation__link">Contact</a>
+                        <a href="{{ route('home.contact') }}" class="navigation__link">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -400,24 +400,24 @@
                         <a href="{{ route('home.index') }}" class="navigation__link">Home</a>
                     </li>
                     <div class="divider"></div>
-                    <li class="navigation__item">
-                        <a href="{{route('shop.index')}}" class="navigation__link">Shop</a>
+                    {{-- <li class="navigation__item">
+                        <a href="{{route('shop.index')}}" class="navigation__link">Shop</a> --}}
                     </li>
                     <li class="navigation__item">
                         <a href="{{route('cart.index')}}" class="navigation__link">Cart</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="about.html" class="navigation__link">About</a>
+                        <a href="{{ route('home.about') }}" class="navigation__link">About</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="contact.html" class="navigation__link">Contact</a>
+                        <a href="{{ route('home.contact') }}" class="navigation__link">Contact</a>
                     </li>
                 </ul>
             </nav>
 
             <div class="header-tools d-flex align-items-center">
                 <div class="header-tools__item hover-container">
-                    <div class="js-hover__open position-relative">
+                    {{-- <div class="js-hover__open position-relative">
                         <a class="js-search-popup search-field__actor" href="#">
                             <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -425,7 +425,7 @@
                             </svg>
                             <i class="btn-icon btn-close-lg"></i>
                         </a>
-                    </div>
+                    </div> --}}
 
                     <div class="search-popup js-hidden-content">
                         <form action="#" method="GET" class="search-field container">
@@ -483,9 +483,9 @@
 
                 <a class="header-tools__item header-tools__wishlist" href="#">
                     {{-- {{route('wishlist.index')}} --}}
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {{-- <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <use href="#icon_heart" />
-                    </svg>
+                    </svg> --}}
                     @if(Cart::instance("wishlist")->content()->count()>0)
                             <span class="cart-amount d-block position-absolute js-cart-items-count">{{Cart::instance("wishlist")->content()->count()}}</span>
                     @endif
@@ -514,11 +514,11 @@
             <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0">
                 <div class="logo">
                     <a href="{{ route('home.index') }}">
-                        <img src="{{ asset('assets/images/logo.png') }}" alt="SurfsideMedia" class="logo__image d-block" />
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="Noel Bekele" class="logo__image d-block" />
                     </a>
                 </div>
-                <p class="footer-address">123 Beach Avenue, Surfside City, CA 00000</p>
-                <p class="m-0"><strong class="fw-medium">contact@surfsidemedia.in</strong></p>
+                <p class="footer-address">123 Noel Bekele St, Dire City, CA 00000</p>
+                <p class="m-0"><strong class="fw-medium">contact@dire.in</strong></p>
                 <p><strong class="fw-medium">+1 000-000-0000</strong></p>
 
                 <ul class="social-links list-unstyled d-flex flex-wrap mb-0">
@@ -569,22 +569,22 @@
             <div class="footer-column footer-menu mb-4 mb-lg-0">
                 <h6 class="sub-menu__title text-uppercase">Company</h6>
                 <ul class="sub-menu__list list-unstyled">
-                    <li class="sub-menu__item"><a href="about-2.html" class="menu-link menu-link_us-s">About Us</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">About Us</a></li>
                     <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Careers</a></li>
                     <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Affiliates</a></li>
-                    <li class="sub-menu__item"><a href="blog_list1.html" class="menu-link menu-link_us-s">Blog</a></li>
-                    <li class="sub-menu__item"><a href="contact-2.html" class="menu-link menu-link_us-s">Contact Us</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Blog</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="footer-column footer-menu mb-4 mb-lg-0">
                 <h6 class="sub-menu__title text-uppercase">Shop</h6>
                 <ul class="sub-menu__list list-unstyled">
-                    <li class="sub-menu__item"><a href="shop2.html" class="menu-link menu-link_us-s">New Arrivals</a></li>
-                    <li class="sub-menu__item"><a href="shop3.html" class="menu-link menu-link_us-s">Accessories</a></li>
-                    <li class="sub-menu__item"><a href="shop4.html" class="menu-link menu-link_us-s">Men</a></li>
-                    <li class="sub-menu__item"><a href="shop5.html" class="menu-link menu-link_us-s">Women</a></li>
-                    <li class="sub-menu__item"><a href="shop1.html" class="menu-link menu-link_us-s">Shop All</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">New Arrivals</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Accessories</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Men</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Women</a></li>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Shop All</a></li>
                 </ul>
             </div>
 
@@ -592,9 +592,9 @@
                 <h6 class="sub-menu__title text-uppercase">Help</h6>
                 <ul class="sub-menu__list list-unstyled">
                     <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Customer Service</a></li>
-                    <li class="sub-menu__item"><a href="account_dashboard.html" class="menu-link menu-link_us-s">My Account</a>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">My Account</a>
                     </li>
-                    <li class="sub-menu__item"><a href="store_location.html" class="menu-link menu-link_us-s">Find a Store</a>
+                    <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Find a Store</a>
                     </li>
                     <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Legal & Privacy</a></li>
                     <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Gift Card</a></li>
@@ -616,9 +616,9 @@
 
     <div class="footer-bottom">
         <div class="container d-md-flex align-items-center">
-            <span class="footer-copyright me-auto">©2024 Surfside Media</span>
+            <span class="footer-copyright me-auto">©2024 Noel Bekele</span>
             <div class="footer-settings d-md-flex align-items-center">
-                <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-conditions.html">Terms &amp;
+                <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-conditions.html">Terms &amp;
                     Conditions</a>
             </div>
         </div>
@@ -651,10 +651,10 @@
         <div class="col-4">
             <a href="{{ route('home.index') }}" class="footer-mobile__link d-flex flex-column align-items-center">
                 <div class="position-relative">
-                    <svg class="d-block" width="18" height="18" viewBox="0 0 20 20" fill="none"
+                    {{-- <svg class="d-block" width="18" height="18" viewBox="0 0 20 20" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon_heart" />
-                    </svg>
+                    </svg> --}}
                     <span class="wishlist-amount d-block position-absolute js-wishlist-count">3</span>
                 </div>
                 <span>Wishlist</span>

@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('home.about');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('home.contact');
 
 //   products page of shop
 Route::get('/shop',[ShopController::class,'index'])->name('shop.index');

@@ -613,7 +613,7 @@
 
             <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
 
-            <section class="products-grid container">
+            {{-- <section class="products-grid container">
                 <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Our Products</h2>
 
                 <div class="row">
@@ -914,7 +914,82 @@
                 <div class="text-center mt-2">
                     <a class="btn-link btn-link_lg default-underline text-uppercase fw-medium" href="#">Load More</a>
                 </div>
-            </section>
+            </section> --}}
+            <!-- resources/views/products/index.blade.php -->
+<section class="products-grid container">
+    <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Our Products</h2>
+
+    <div class="row">
+        @foreach($products as $product)
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="product-card product-card_style3 mb-3 mb-md-4 mb-xxl-5">
+                    <div class="pc__img-wrapper">
+                        {{-- <a href="#">
+                            {{ route('products.show', $product->slug) }}
+                            <img loading="lazy" src="{{ asset('storage/' . $product->image) }}" width="330" height="400"
+                                 alt="{{ $product->name }}" class="pc__img">
+                        </a> --}}
+                        <a href="{{route('shop.product.details',["product_slug"=>$product->slug])}}">
+                            <img loading="lazy" src="{{asset('uploads/products')}}/{{$product->image}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img">
+                        </a>
+                        @if(Cart::instance("cart")->content()->Where('id',$product->id)->count()>0)
+                                    <a href="{{route('cart.index')}}" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart btn-warning">Go to Cart</a>
+                                @else
+                                    <form name="addtocart-form" method="POST" action="{{route('cart.store')}}">
+                                        @csrf
+                                        <div class="product-single__addtocart">
+                                            <input type="hidden" name="id" value="{{$product->id}}" />
+                                            <input type="hidden" name="name" value="{{$product->name}}" />
+                                            <input type="hidden" name="quantity" value="1"/>
+                                            <input type="hidden" name="price" value="{{$product->sale_price == '' ? $product->regular_price:$product->sale_price}}" />
+                                            <button type="submit" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart">Add to Cart</button>
+                                        </div>
+                                    </form>
+                                @endif
+                        {{-- @if($product->isNew())
+                            <div class="product-label text-uppercase bg-white top-0 left-0 mt-2 mx-2">New</div> --}}
+                        {{-- @elseif($product->discount) --}}
+                            {{-- <div class="product-label bg-red text-white right-0 top-0 left-auto mt-2 mx-2">{{ $product->discount }}% OFF</div> --}}
+                        {{-- @endif --}}
+                    </div>
+
+                    <div class="pc__info position-relative">
+                        <h6 class="pc__title"><a href="#">{{ $product->name }}</a></h6>
+                        {{-- {{ route('products.show', $product->slug) }} --}}
+                        <div class="product-card__price d-flex align-items-center">
+                            @if($product->sale_price)
+                                <span class="money price-old">${{ $product->regular_price }}</span>
+                                <span class="money price text-secondary">${{ $product->sale_price }}</span>
+                            @else
+                                <span class="money price text-secondary">${{ $product->regular_price }}</span>
+                            @endif
+                        </div>
+
+                        <div class="anim_appear-bottom position-absolute bottom-0 start-0 d-none d-sm-flex align-items-center bg-body">
+                            <button class="btn-link btn-link_lg me-4 text-uppercase fw-medium js-add-cart js-open-aside"
+                                    data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
+                            <button class="btn-link btn-link_lg me-4 text-uppercase fw-medium js-quick-view"
+                                    data-bs-toggle="modal" data-bs-target="#quickView" title="Quick view">
+                                <span class="d-none d-xxl-block">Quick View</span>
+                                <span class="d-block d-xxl-none">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="#icon_view" />
+                                    </svg>
+                                </span>
+                            </button>
+                            <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="#icon_heart" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</section>
+
         </div>
 
         <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
