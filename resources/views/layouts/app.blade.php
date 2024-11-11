@@ -481,11 +481,15 @@
                     </div>
                 @endif
 
-                <a href="wishlist.html" class="header-tools__item">
+                <a class="header-tools__item header-tools__wishlist" href="#">
+                    {{-- {{route('wishlist.index')}} --}}
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon_heart" />
+                            <use href="#icon_heart" />
                     </svg>
-                </a>
+                    @if(Cart::instance("wishlist")->content()->count()>0)
+                            <span class="cart-amount d-block position-absolute js-cart-items-count">{{Cart::instance("wishlist")->content()->count()}}</span>
+                    @endif
+            </a>
 
                 <a href="{{route('cart.index')}}" class="header-tools__item header-tools__cart">
                     <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -14,6 +14,10 @@ class ShopController extends Controller
         // Set the default page size and order values
         $size = $request->query('size') ? $request->query('size') : 12;
         $order = $request->query('order') ? $request->query('order') : -1;
+        $f_brands =  $request->query('brands');
+        $f_categories =  $request->query('categories');
+        $min_price = $request->query('min') ? $request->query('min') : 1;
+        $max_price = $request->query('max') ? $request->query('max') : 500;
 
         // Initialize ordering column and direction
         $o_column = "id";
@@ -43,10 +47,19 @@ class ShopController extends Controller
         }
 
         // Use the variables instead of string literals in orderBy
-        $products = Product::orderBy($o_column, $o_order)->paginate($size);
+        $products = Product::where(function($query) use($f_brands){
+            $query->whereIn('brand_id',explode(',',$f_brands) )->OrWhereRaw("'".$f_brands."'=''");
+        })
+        ->where(function($query) use($f_categories){
+            $query->whereIn('category_id',explode(',',$f_categories) )->OrWhereRaw("'".$f_categories."'=''");
+        })
+        ->where(function($query) use($min_price,$max_price){
+            $query->whereBetween('regular_price',[$min_price,$max_price])->OrWhereBetween('sale_price',[$min_price,$max_price]);
+        })
+        ->orderBy($o_column, $o_order)->paginate($size);
         $brands = Brand::orderBy('name','ASC')->get();
-
-        return view('shop', compact("products", "size", "order","brands"));
+        $categories = Category::orderBy('name','ASC')->get();
+        return view('shop', compact("products", "size", "order","brands","f_brands","categories","f_categories","min_price","max_price"));
     }
     public function product_details($product_slug)
     {

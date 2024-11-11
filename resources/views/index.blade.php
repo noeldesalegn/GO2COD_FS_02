@@ -85,7 +85,7 @@
             </div>
         </section>
         <div class="container mw-1620 bg-white border-radius-10">
-            <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
+            {{-- <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
             <section class="category-carousel container">
                 <h2 class="section-title text-center mb-3 pb-xl-2 mb-xl-4">You Might Like</h2>
 
@@ -126,8 +126,8 @@
                   "pagination": false
                 }
               }
-            }'>
-                        <div class="swiper-wrapper">
+            }'> --}}
+                        {{-- <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img loading="lazy" class="w-100 h-auto mb-3" src=" {{ asset('assets/images/home/demo3/category_1.png') }}" width="124"
                                      height="124" alt="" />
@@ -185,7 +185,7 @@
                                 </div>
                             </div>
                         </div><!-- /.swiper-wrapper -->
-                    </div><!-- /.swiper-container js-swiper-slider -->
+                    </div><!-- /.swiper-container js-swiper-slider --> --}}
 
                     <div
                         class="products-carousel__prev products-carousel__prev-1 position-absolute top-50 d-flex align-items-center justify-content-center">
@@ -204,7 +204,7 @@
 
             <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
 
-            <section class="hot-deals container">
+            {{-- <section class="hot-deals container">
                 <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Hot Deals</h2>
                 <div class="row">
                     <div
@@ -609,12 +609,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
             <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
 
             <section class="products-grid container">
-                <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Featured Products</h2>
+                <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Our Products</h2>
 
                 <div class="row">
                     <div class="col-6 col-md-4 col-lg-3">
