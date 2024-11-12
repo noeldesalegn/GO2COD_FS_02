@@ -18,39 +18,57 @@ Welcome to the Online Store Platform! This project empowers users to explore pro
 ## 📄 Requirements
 - **Laravel** version 8+ and **PHP** version 7.3+ for backend functionality.
 - **Bootstrap** and custom CSS for front-end styling and layout.
+- **MySQL** database through **XAMPP** for local development.
 
 ## 📥 Installation
 
-1. **Clone the repository**:
+1. **Install XAMPP** (if not already installed) and start the **MySQL** and **Apache** services.
+
+2. **Clone the repository**:
 
     ```bash
     git clone https://github.com/noeldesalegn/GO2COD_FS_02.git
     cd GO2COD_FS_02
     ```
 
-2. **Install dependencies**:
+3. **Install dependencies**:
 
     ```bash
     composer install
     ```
 
-3. **Set up environment variables**:
+4. **Set up environment variables**:
 
-    - Create a `.env` file based on the example and update necessary fields like database credentials.
+    - Create a `.env` file based on the example (`.env.example`).
+    - Update the database connection settings in the `.env` file:
 
-4. **Set up the database and run migrations**:
+      ```dotenv
+      DB_CONNECTION=mysql
+      DB_HOST=127.0.0.1
+      DB_PORT=3306
+      DB_DATABASE=Laravel11ecommercedb
+      DB_USERNAME=root
+      DB_PASSWORD=
+      ```
+
+      > Replace `Laravel11ecommercedb` with the name of your MySQL database.
+
+5. **Set up the database and run migrations**:
+
+    - Open **phpMyAdmin** in XAMPP and create a new database with the name specified in `.env`.
+    - Run migrations to set up database tables:
 
     ```bash
     php artisan migrate
     ```
 
-5. **Run the development server**:
+6. **Run the development server**:
 
     ```bash
     php artisan serve
     ```
 
-6. Visit [http://localhost:8000](http://localhost:8000) to see the online store platform in action!
+7. Visit [http://localhost:8000](http://localhost:8000) to see the online store platform in action!
 
 ## 📧 Contact
 For questions or inquiries, feel free to reach us at [nbekele8@gmail.com](mailto:nbekele8@gmail.com).
