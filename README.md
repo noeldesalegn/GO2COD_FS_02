@@ -14,30 +14,28 @@ Backend: Powered by Laravel, handling all aspects of product display, cart updat
 📄 Requirements
 Laravel version 8+ and PHP version 7.3+ for backend functionality.
 Bootstrap and custom CSS for front-end styling and layout.
+
 📥 Installation
 Clone the repository:
 
-bash
-Copy code
 git clone https://github.com/noeldesalegn/GO2COD_FS_02.git
 cd GO2COD_FS_02
+
 Install dependencies:
 
-bash
-Copy code
 composer install
 Set up environment variables:
 
 Create a .env file based on the example and update necessary fields like database credentials.
 Set up the database and run migrations:
 
-bash
-Copy code
+
+
 php artisan migrate
 Run the development server:
 
-bash
-Copy code
+
+
 php artisan serve
 Visit http://localhost:8000 to see the online store platform in action!
 
